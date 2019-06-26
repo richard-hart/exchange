@@ -1,0 +1,16 @@
+ 
+1. Get-ExchangeCertificate -FriendlyName "Microsoft Federation Gateway"
+
+2. Note the thumb-print of the new certificate. Let us assume it is 7A39541F8DF58D4821967DD8F899B27410F7C081
+
+3. $a=get-date
+
+4. Set-AuthConfig -NewCertificateThumbprint 7A39541F8DF58D4821967DD8F899B27410F7C081 –NewCertificateEffectiveDate $a
+
+Accept to continue despite the fact that the certificate effective date is not 48 hours into the future
+
+5. Set-AuthConfig –PublishCertificate
+
+6. Make sure to remove any potential reference to the previous certificate (which might not exist anymore) by doing Set-AuthConfig -ClearPreviousCertificate
+
+Run the iisreset command
