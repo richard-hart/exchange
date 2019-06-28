@@ -1,0 +1,1 @@
+Get-ReceiveConnector “smtp relay”| select -ExpandProperty remoteipranges|export-csv c:\RelayIPs.csv
